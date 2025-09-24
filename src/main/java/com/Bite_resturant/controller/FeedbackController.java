@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/feedback")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin
 public class FeedbackController {
     @Autowired
     private FeedbackRepo feedbackRepo;

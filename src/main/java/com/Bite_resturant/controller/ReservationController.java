@@ -1,6 +1,6 @@
 package com.Bite_resturant.controller;
 
-import com.Bite_resturant.dto.ItemDto;
+
 import com.Bite_resturant.dto.request.ReservationDto;
 import com.Bite_resturant.dto.response.ReservationResponseDto;
 import com.Bite_resturant.service.ReservationService;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/reservation")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin("*")
 public class ReservationController {
     @Autowired
     private ReservationService reservationService;

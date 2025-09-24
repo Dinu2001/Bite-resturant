@@ -1,7 +1,6 @@
 package com.Bite_resturant.controller;
 
-import com.Bite_resturant.dto.ItemDto;
-import com.Bite_resturant.dto.UserDto;
+
 import com.Bite_resturant.dto.request.LoginDto;
 import com.Bite_resturant.dto.request.RegisterDto;
 import com.Bite_resturant.dto.response.LoginResponseDto;
@@ -18,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/user")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired

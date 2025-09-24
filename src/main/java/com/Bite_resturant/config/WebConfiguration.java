@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.PasswordManagementConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,7 +31,7 @@ public class WebConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(AbstractHttpConfigurer::disable)
+                .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
@@ -42,6 +41,7 @@ public class WebConfiguration {
                                 .requestMatchers(
                                         "/api/v1/user/authentication",
                                         "/api/v1/item/**",
+                                        "/api/v1/feedback/**",
                                         "/api/v1/user/register"
                                 ).permitAll()
                                 .anyRequest().authenticated()
